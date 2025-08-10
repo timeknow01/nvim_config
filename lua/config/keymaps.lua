@@ -4,6 +4,7 @@ local opts = { noremap = true, silent = true }
 -- Do things without affecting the registers
 keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
 keymap.set("n", "H", "^")
+keymap.set("n", "H", "^")
 keymap.set("n", "L", "$")
 keymap.set("n", "<Leader>p", '"0p')
 keymap.set("n", "<Leader>P", '"0P')
@@ -16,6 +17,7 @@ keymap.set("n", "<Leader>d", '"_d')
 keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
+keymap.set("n", "tt", "<C-t>")
 
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")

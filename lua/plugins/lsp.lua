@@ -12,6 +12,9 @@ return {
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"css-lsp",
+				-- Python LSP & Lint
+				"pyright",
+				"ruff-lsp",
 			})
 		end,
 	},
@@ -131,6 +134,19 @@ return {
 							},
 						},
 					},
+				},
+				-- Python LSP: 提供完整语义功能（包括 references）
+				pyright = {
+					-- 如遇到未自动附着问题，可按需指定 root_dir：
+					-- root_dir = require("lspconfig.util").root_pattern("pyproject.toml", "setup.py", ".git", "requirements.txt"),
+				},
+				-- Ruff LSP: 仅做诊断/修复，避免覆盖 hover/补全等
+				ruff_lsp = {
+					on_attach = function(client, bufnr)
+						client.server_capabilities.hoverProvider = false
+						client.server_capabilities.signatureHelpProvider = nil
+						client.server_capabilities.completionProvider = nil
+					end,
 				},
 			},
 			setup = {},
